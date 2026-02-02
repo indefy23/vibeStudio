@@ -1,0 +1,262 @@
+1. Papel real da IA nesse modelo
+
+A IA não executa ações nem controla fluxo.
+Ela preenche estruturas em pontos bem definidos.
+
+Ela faz três coisas, sempre nessa ordem:
+
+Gera um plano de edição (intenção)
+
+Preenche um JSON de edição inicial
+
+Opcionalmente refina esse JSON quando solicitada
+
+Ela nunca:
+
+decide pipeline
+
+chama ferramentas
+
+executa código
+
+valida dados
+
+2. Etapa 1 — Plano de edição (não executável)
+
+O plano existe para:
+
+tornar decisões auditáveis
+
+explicar escolhas
+
+guiar refinamentos posteriores
+
+Formato: texto estruturado / JSON leve
+
+Exemplo real de plano
+{
+  "goal": "Vídeo curto para redes sociais",
+  "format": "9:16",
+  "duration_target": "8–12s",
+
+  "pacing": {
+    "cut_style": "rápido",
+    "average_shot_duration": "0.8–1.4s"
+  },
+
+  "audio_usage": {
+    "speech_priority": true,
+    "sync_with_beats": true
+  },
+
+  "visual_policy": {
+    "zoom_usage": "leve",
+    "max_zoom": 1.12,
+    "motion_style": "stomp discreto"
+  },
+
+  "text_policy": {
+    "use_captions": true,
+    "highlight_keywords": true,
+    "effects": ["typewriter"]
+  }
+}
+
+
+Esse plano não vira render.
+Ele só orienta a próxima etapa.
+
+3. Etapa 2 — Regras fixas que a IA não pode quebrar
+
+Antes do JSON de edição existir, o sistema define:
+
+sistema de coordenadas normalizado (0–1)
+
+anchors obrigatórios
+
+ranges permitidos
+
+propriedades animáveis válidas
+
+tipos de interpolação permitidos
+
+A IA só escolhe dentro disso.
+
+Exemplo de limites (internos, não expostos):
+
+{
+  "ranges": {
+    "position": [0.0, 1.0],
+    "scale": [0.8, 1.15],
+    "opacity": [0.0, 1.0],
+    "brightness": [-0.05, 0.05],
+    "saturation": [0.9, 1.1]
+  },
+  "interpolations": ["linear", "ease-in", "ease-out", "step"]
+}
+
+4. Etapa 3 — JSON de edição (executável)
+
+Aqui está o que realmente importa.
+
+Esse JSON é:
+
+determinístico
+
+validável
+
+editável depois pela UI
+
+consumido por preview e render
+
+Exemplo real e completo (atualizado)
+{
+  "meta": {
+    "version": "1.0",
+    "fps": 30,
+    "format": "9:16",
+    "duration": 10.6
+  },
+
+  "assets": {
+    "video": [
+      { "id": "v1", "src": "input.mp4" }
+    ]
+  },
+
+  "timeline": {
+    "tracks": [
+      {
+        "id": "main_video",
+        "type": "video",
+        "clips": [
+          {
+            "asset": "v1",
+            "start": 0.0,
+            "end": 10.6,
+            "in": 2.3,
+            "out": 12.9
+          }
+        ]
+      },
+
+      {
+        "id": "text_overlays",
+        "type": "overlay",
+        "elements": [
+          {
+            "id": "caption_1",
+            "type": "text",
+            "content": "IA não edita sozinha",
+            "start": 1.2,
+            "end": 3.8,
+
+            "properties": {
+              "anchor": "center",
+              "position": { "x": 0.5, "y": 0.82 },
+              "scale": 1.0,
+              "opacity": 1.0
+            },
+
+            "keyframes": {
+              "scale": [
+                { "t": 1.2, "v": 0.9, "e": "ease-out" },
+                { "t": 1.45, "v": 1.0, "e": "ease-in" }
+              ],
+              "text.reveal": [
+                { "t": 1.2, "v": 0, "e": "step" },
+                { "t": 3.4, "v": 18, "e": "step" }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "adjustments": {
+    "color": {
+      "brightness": [
+        { "t": 0.0, "v": 0.02 },
+        { "t": 10.6, "v": 0.02 }
+      ],
+      "saturation": [
+        { "t": 0.0, "v": 1.05 }
+      ]
+    }
+  }
+}
+
+5. Como a IA define valores (sem achismo)
+
+A IA não calcula valores contínuos.
+
+Ela escolhe opções discretas, que o sistema traduz em números.
+
+Exemplo:
+
+“zoom leve” → scale entre 1.05 e 1.12
+
+“entrada rápida” → duração de keyframe 0.2–0.3s
+
+“stomp discreto” → 1 ou 2 keyframes curtos
+
+O mapeamento é tabela fixa, não LLM.
+
+6. Refinamento posterior (controle total)
+
+Quando o usuário pede:
+
+“menos zoom”
+
+“texto mais baixo”
+
+“ritmo mais lento”
+
+A IA:
+
+recebe o JSON atual
+
+altera somente campos permitidos
+
+mantém estrutura
+
+respeita ranges
+
+Nada é recriado do zero.
+
+7. O que isso resolve (objetivamente)
+
+previsibilidade
+
+debug simples
+
+consistência entre preview e render
+
+edição manual sem conflito
+
+IA útil sem perder controle
+
+8. O que isso NÃO tenta fazer
+
+agente autônomo
+
+criatividade aberta
+
+edição perfeita automática
+
+É um copiloto técnico, não um artista.
+
+9. Resumo final
+
+IA gera plano → depois JSON
+
+JSON usa coordenadas normalizadas
+
+Valores vêm de políticas, não criatividade
+
+UI edita o mesmo JSON
+
+Render consome só o JSON
+
+Nada mágico, tudo controlado
