@@ -1,0 +1,298 @@
+:root {
+  --color-bg: #E0E7FF;
+  --color-surface: #FFFFFF;
+  --color-primary: #4F46E5;
+  --color-secondary: #EC4899;
+  --color-accent: #F59E0B;
+  --color-text: #111827;
+  --color-border: #000000;
+
+  --shadow-hard: 4px 4px 0px 0px var(--color-border);
+  --border-thick: 2px solid var(--color-border);
+  --radius-sm: 4px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Layout Utilities */
+.app-container {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow-x: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.badge {
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid transparent;
+}
+
+.badge.ai {
+  background: black;
+  color: white;
+  transform: rotate(-2deg);
+}
+
+.badge.version {
+  background: var(--color-secondary);
+  color: white;
+  border-color: black;
+  box-shadow: 2px 2px 0px black;
+  transform: rotate(2deg);
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Default mobile */
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    grid-template-columns: 350px 1fr;
+    /* Desktop sidebar fixed width */
+  }
+}
+
+/* Sidebar & Columns */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  /* Important for grid responsiveness */
+}
+
+/* Neo Components */
+.neo-box {
+  background: var(--color-surface);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.btn {
+  background: var(--color-primary);
+  color: white;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-hard);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--color-border);
+}
+
+.btn.secondary {
+  background: var(--color-secondary);
+}
+
+.btn.accent {
+  background: var(--color-accent);
+  color: black;
+}
+
+.btn.dark {
+  background: #1f2937;
+}
+
+/* Styles for Preview Component content */
+.monitor {
+  position: relative;
+  aspect-ratio: 9/16;
+  width: 100%;
+  /* Adapts to container */
+  max-width: 300px;
+  /* Limit max size */
+  background: black;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Timeline Component */
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.timeline-canvas {
+  position: relative;
+  border: 2px solid black;
+  background: #f9fafb;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.ruler {
+  height: 24px;
+  background: #e5e7eb;
+  border-bottom: 2px solid black;
+  position: relative;
+  width: 100%;
+}
+
+.track {
+  position: relative;
+  height: 80px;
+  border-bottom: 2px dashed black;
+  border-right: 2px solid black;
+}
+
+.track:last-child {
+  border-bottom: none;
+}
+
+.track-head {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  background: white;
+  border-right: 2px solid black;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.track-body {
+  margin-left: 100px;
+  position: relative;
+  height: 100%;
+  background-size: 20px 20px;
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+}
+
+.clip {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  background: var(--color-primary);
+  border: 2px solid black;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 0px black;
+  cursor: grab;
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 4px;
+  z-index: 5;
+}
+
+.clip:hover {
+  z-index: 20;
+}
+
+.clip:active {
+  cursor: grabbing;
+  z-index: 20;
+}
+
+.clip.overlay {
+  background: var(--color-secondary);
+}
+
+/* Clip Resizers */
+.resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: col-resize;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.resize-handle:hover {
+  opacity: 1;
+}
+
+.resize-handle.left {
+  left: 0;
+}
+
+.resize-handle.right {
+  right: 0;
+}
