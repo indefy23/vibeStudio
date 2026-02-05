@@ -1,0 +1,110 @@
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: f86c47f4-4442-46f7-865d-3d22ecd658ca
+
+[REAL-TEST] Manually running Orchestrator for f86c47f4-4442-46f7-865d-3d22ecd658ca
+Analyzing asset: d5bcfe8b-ec69-40da-8953-3501149f5e13 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: f0ef6457-38f6-4cb2-8281-5c9ba5bbb56d (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: f75e2f6b-20ee-4691-a1a3-327ebe30cfb0 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: eabb6645-e1c3-43fc-a7be-22b3fb62649e (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 20242417-944a-43d6-8d38-fb61e053cf02 (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+  - Visual Analysis (Video Frame)...
+  - Classifying (LLM)...
+Analyzing asset: 76109993-b6c5-4d8d-bcd1-a04c7e154ecf (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 45f2f74e-d86e-4abc-9ea8-f7c9ad25a983                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (1903 bytes)
+  - context.json: OK (29020 bytes)
+  - timeline.json: OK (1418 bytes)
+    Timeline content: {
+  "video": [
+    {
+      "asset_id": "20242417-944a-43d6-8d38-fb61e053cf02",
+      "start": 0.0,
+      "end": 5.0,
+      "description": "Funny intro conversation"
+    },
+    {
+      "asset_id": "20242417-944a-43d6-8d38-fb61e053cf02",
+      "start": 10.0,
+      "end": 15.0,
+      "description": "Confusion moment"
+    },
+    {
+      "asset_id": "20242417-944a-43d6-8d38-fb61e053cf02",
+      "start": 20.0,
+      "end": 25.0,
+      "description": "Humorous dialogue"
+    }
+  ],
+  "audio": [
+    {
+      "asset_id": "f0ef6457-38f6-4cb2-8281-5c9ba5bbb56d",
+      "start_at": 5.0,
+      "vol": 0.8,
+      "description": "Oh... sound effect after an awkward pause"
+    },
+    {
+      "asset_id": "76109993-b6c5-4d8d-bcd1-a04c7e154ecf",
+      "start_at": 10.0,
+      "vol": 0.5,
+      "description": "Bee sound for comedic effect"
+    }
+  ],
+  "overlay": [
+    {
+      "asset_id": "d5bcfe8b-ec69-40da-8953-3501149f5e13",
+      "start_at": 2.0,
+      "duration": 0.24,
+      "description": "Intellectual reaction GIF"
+    },
+    {
+      "asset_id": "f75e2f6b-20ee-4691-a1a3-327ebe30cfb0",
+      "start_at": 12.0,
+      "duration": 0.04,
+      "description": "Homer twerking for humor"
+    },
+    {
+      "asset_id": "eabb6645-e1c3-43fc-a7be-22b3fb62649e",
+      "start_at": 18.0,
+      "duration": 1.05,
+      "description": "Kevin Hart's shocked reaction"
+    }
+  ]
+}
+  - final_video.mp4: OK (262118 bytes)

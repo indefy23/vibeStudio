@@ -1,5 +1,18 @@
-fastapi>=0.109.0
-uvicorn>=0.27.0
-pydantic>=2.6.0
-python-multipart
+fastapi
+uvicorn
+celery
+redis
+sqlalchemy
+openai
+crewai==0.28.8 # Pinning version for stability if needed, or latest
+langchain_openai
+torch
+torchvision
+torchaudio
+librosa
 ffmpeg-python
+google-generativeai
+opentimelineio
+python-multipart
+pydantic-settings
+requests

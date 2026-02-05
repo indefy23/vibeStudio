@@ -1,0 +1,62 @@
+[REAL-TEST] Starting Pipeline with c:\Users\Desk\Desktop\vibeStudio\backend\tests\assets\ow18zpUufxB0QeDCDYaB0EEgSFp6WgWJSUEIBc.mp4
+[REAL-TEST] OpenAI Key Present: Yes
+[REAL-TEST] Project Created: 4fdb6bca-49b8-4779-8063-25edfb1feb6f
+
+[REAL-TEST] Manually running Orchestrator for 4fdb6bca-49b8-4779-8063-25edfb1feb6f
+Analyzing asset: f61ad5b6-7130-4e9a-9d33-15761006b2ba (AssetType.VIDEO)
+  - Transcribing...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 4b1eb820-e4da-4077-adf9-6cccb19e4b4b                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[Renderer] Processing Clip: f61ad5b6-7130-4e9a-9d33-15761006b2ba -> ./projects\4fdb6bca-49b8-4779-8063-25edfb1feb6f\assets\test_video.mp4
+[Renderer] Processing Clip: f61ad5b6-7130-4e9a-9d33-15761006b2ba -> ./projects\4fdb6bca-49b8-4779-8063-25edfb1feb6f\assets\test_video.mp4
+[Renderer] Processing Clip: f61ad5b6-7130-4e9a-9d33-15761006b2ba -> ./projects\4fdb6bca-49b8-4779-8063-25edfb1feb6f\assets\test_video.mp4
+[Renderer] Processing Clip: f61ad5b6-7130-4e9a-9d33-15761006b2ba -> ./projects\4fdb6bca-49b8-4779-8063-25edfb1feb6f\assets\test_video.mp4
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (672 bytes)
+  - context.json: OK (23080 bytes)
+  - timeline.json: OK (979 bytes)
+    Timeline content: {
+  "clips": [
+    {
+      "asset_id": "f61ad5b6-7130-4e9a-9d33-15761006b2ba",
+      "start": 0.0,
+      "end": 10.0,
+      "description": "Introduction to the conversation, setting the scene with the speaker's repetitive questioning."
+    },
+    {
+      "asset_id": "f61ad5b6-7130-4e9a-9d33-15761006b2ba",
+      "start": 10.0,
+      "end": 25.0,
+      "description": "Shifts into discussing personal opinions about another individual, highlighting social dynamics."
+    },
+    {
+      "asset_id": "f61ad5b6-7130-4e9a-9d33-15761006b2ba",
+      "start": 25.0,
+      "end": 40.0,
+      "description": "The conversation transitions into a humorous exchange about physical traits, showcasing camaraderie."
+    },
+    {
+      "asset_id": "f61ad5b6-7130-4e9a-9d33-15761006b2ba",
+      "start": 40.0,
+      "end": 50.933333,
+      "description": "Concluding remarks focusing on self-description and light-hearted banter, wrapping up the dialogue."
+    }
+  ]
+}
+  - final_video.mp4: OK (10906560 bytes)

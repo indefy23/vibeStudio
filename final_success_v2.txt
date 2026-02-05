@@ -1,0 +1,72 @@
+[REAL-TEST] Starting Pipeline with c:\Users\Desk\Desktop\vibeStudio\backend\tests\assets\ow18zpUufxB0QeDCDYaB0EEgSFp6WgWJSUEIBc.mp4
+[REAL-TEST] OpenAI Key Present: Yes
+[REAL-TEST] Project Created: 6032127b-f51e-4483-9c66-ef4b705d7043
+
+[REAL-TEST] Manually running Orchestrator for 6032127b-f51e-4483-9c66-ef4b705d7043
+Analyzing asset: dc20725c-fd31-4a9d-86f8-12d974259d5e (AssetType.VIDEO)
+  - Transcribing...
+  - Visual Analysis (Video Frame)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 511f588c-a02d-4254-b74d-9a7ba79cc22f                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 76, in run
+    self.renderer.render_timeline(
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 16, in render_timeline
+    raise ValueError("No clips in timeline")
+ValueError: No clips in timeline
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 61, in test_real_pipeline
+    run_orchestrator_manually(project_id)
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 22, in run_orchestrator_manually
+    orchestrator.run()
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 91, in run
+    raise e
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 76, in run
+    self.renderer.render_timeline(
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 16, in render_timeline
+    raise ValueError("No clips in timeline")
+ValueError: No clips in timeline
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+Orchestrator failed: No clips in timeline
+[REAL-TEST] Execution Logic Failed: No clips in timeline
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (664 bytes)
+  - context.json: OK (23533 bytes)
+  - timeline.json: OK (878 bytes)
+    Timeline content: {
+  "timeline": [
+    {
+      "asset_id": "dc20725c-fd31-4a9d-86f8-12d974259d5e",
+      "start": 0.0,
+      "end": 10.0,
+      "description": "This segment introduces the main characters and sets the tone of the conversation, capturing the initial dynamic and mood."
+    },
+    {
+      "asset_id": "dc20725c-fd31-4a9d-86f8-12d974259d5e",
+      "start": 20.0,
+      "end": 30.0,
+      "description": "This part includes a critical discussion point where the characters talk about changing the subject, highlighting the main dialogue and interaction."
+    },
+    {
+      "asset_id": "dc20725c-fd31-4a9d-86f8-12d974259d5e",
+      "start": 40.0,
+      "end": 50.933333,
+      "description": "Concludes with a light-hearted moment focusing on the physical aspect mentioned (maxillary), showing the unique character interaction and ending with humor."
+    }
+  ]
+}
+  - final_video.mp4: MISSING (0 bytes)

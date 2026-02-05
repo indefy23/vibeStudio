@@ -1,27 +1,23 @@
 from fastapi import FastAPI
-from contextlib import asynccontextmanager
-import subprocess
+from fastapi.middleware.cors import CORSMiddleware
+from app.api.routes import projects
+from app.core.database import Base, engine
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Startup: Check FFmpeg
-    try:
-        subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print("✅ FFmpeg detectado.")
-    except FileNotFoundError:
-        print("❌ FFmpeg não encontrado no PATH. A renderização não funcionará.")
-    yield
-    # Shutdown
+# Create DB tables
+Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="vibeStudio Engine", lifespan=lifespan)
+app = FastAPI(title="VibeStudio Backend")
 
-from app.api import brain
-app.include_router(brain.router, prefix="/api/brain", tags=["brain"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/health")
-def health_check():
-    return {"status": "ok", "service": "vibe-studio-backend"}
+app.include_router(projects.router, prefix="/projects", tags=["projects"])
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@app.get("/")
+def read_root():
+    return {"message": "VibeStudio Backend Running"}

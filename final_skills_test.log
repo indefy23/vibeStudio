@@ -1,0 +1,174 @@
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: 3c8edd6c-5c61-45c0-b41c-43c3f29390a3
+
+[REAL-TEST] Manually running Orchestrator for 3c8edd6c-5c61-45c0-b41c-43c3f29390a3
+Analyzing asset: 206f3606-0603-45b8-b629-7e841688d917 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 17bff176-e3ca-4406-9803-9418f86dd4f5 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\assets\braco_cruzado.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: aec50f78-dbb4-4269-92b7-267d16b9b48c (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 4fef9ef6-8c12-492c-b5d4-11dfe7e72340 (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+Error transcribing with OpenAI: Error code: 400 - {'error': {'message': "Invalid file format. Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']", 'type': 'invalid_request_error', 'param': None, 'code': None}, 'usage': {'type': 'duration', 'seconds': 0}}
+  - Visual Analysis (Video Frame)...
+  - Classifying (LLM)...
+Analyzing asset: 569de718-96d0-4bdf-8fb3-bc9c356272b6 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: 3ff9ed9a-133c-437f-9d44-3c0e0953d17f (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\assets\image (10).png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 5f293399-ea7f-4519-bfdf-36fd5582edf7 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\assets\image (11).png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 8a977d12-fe2c-403a-8240-7c4ef3414e44 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: ad9137cc-d919-4978-8f71-3a1edf9b9f7f (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: f609ce2a-b6b0-4a83-bced-38187a17e8d8 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\assets\mão_abertas_frente.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 95bab443-2bc3-40f0-94ed-d5f63c352c5f (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\assets\neutro_apontandocamera.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: fe6fe27c-5a27-47e8-a641-1fd90c3891fa (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\assets\print_twitter.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 73c9e8e9-db25-43c8-be7a-911e94adc745 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: e77295b5-5312-4af2-9708-ce50ee05fed2 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: aa57d73e-8faa-4d22-8d98-6db9c2efd5e4 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 5d9c937f-249b-49d3-a27b-f60bad3f4212                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_tool_usage_started' failed for event 'ToolUsageStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_tool_usage_started' failed for event 'ToolUsageStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[Sanitizer] Violation: Audio aa57d73e-8faa-4d22-8d98-6db9c2efd5e4 in Video Track. Fixing...
+  [INFO] Applied subtitles from ./projects\3c8edd6c-5c61-45c0-b41c-43c3f29390a3\overlays.srt
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (3859 bytes)
+  - context.json: OK (15984 bytes)
+  - timeline.json: OK (1592 bytes)
+    Timeline content: {
+  "video": [
+    {
+      "asset_id": "color_placeholder",
+      "start": 0.0,
+      "end": 34.29875,
+      "description": "Placeholder for Audio"
+    }
+  ],
+  "audio": [
+    {
+      "asset_id": "569de718-96d0-4bdf-8fb3-bc9c356272b6",
+      "start_at": 0.0,
+      "vol": 0.5,
+      "description": "Suspenseful ambient background music"
+    },
+    {
+      "asset_id": "aa57d73e-8faa-4d22-8d98-6db9c2efd5e4",
+      "start_at": 0.0,
+      "vol": 1.0,
+      "description": "Moved from Video Track"
+    }
+  ],
+  "overlay": [
+    {
+      "asset_id": "206f3606-0603-45b8-b629-7e841688d917",
+      "start_at": 5.0,
+      "duration": 4.2,
+      "description": "Robot dog walking",
+      "position": "bottom_right",
+      "scale": 0.5
+    },
+    {
+      "asset_id": "e77295b5-5312-4af2-9708-ce50ee05fed2",
+      "start_at": 15.0,
+      "duration": 3.2,
+      "description": "Clumsy robot prototype",
+      "position": "bottom_left",
+      "scale": 0.5
+    }
+  ],
+  "text": [
+    {
+      "content": "DANGER",
+      "start_at": 8.0,
+      "duration": 2.0,
+      "description": "Emphasize warning",
+      "position": "center",
+      "animation": "glitch"
+    },
+    {
+      "content": "FUTURE",
+      "start_at": 18.0,
+      "duration": 2.0,
+      "description": "Emphasize future",
+      "position": "center",
+      "animation": "fade_in"
+    },
+    {
+      "content": "WATCH OUT",
+      "start_at": 28.0,
+      "duration": 2.0,
+      "description": "Alert moment",
+      "position": "center",
+      "animation": "scale/pop"
+    }
+  ]
+}
+  - final_video.mp4: OK (796436 bytes)

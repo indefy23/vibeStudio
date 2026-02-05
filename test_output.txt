@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 13, in <module>
+    from app.agents.orchestrator import Orchestrator
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 6, in <module>
+    from app.engine.renderer import Renderer
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 82
+    ```
+    ^
+SyntaxError: invalid syntax

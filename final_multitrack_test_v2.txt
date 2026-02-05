@@ -1,0 +1,100 @@
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: 5ef7629c-129e-4a50-9406-183a10eb4ebf
+
+[REAL-TEST] Manually running Orchestrator for 5ef7629c-129e-4a50-9406-183a10eb4ebf
+Analyzing asset: be0e57fd-f7f8-4ce5-be03-3e2e9fdbd780 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+Analyzing asset: 6a1a952b-1b2d-425b-a85e-7965d77c987c (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Audio Analysis (Duration check)...
+Analyzing asset: e1c1ff7a-d6fb-4149-9719-09cf26d6e162 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+Analyzing asset: e9285abe-3e53-4b56-a60c-5088883c4280 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+Analyzing asset: 96803a6e-3fcc-4d1b-b5bd-e6d1cd7f40ce (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+  - Visual Analysis (Video Frame)...
+Analyzing asset: 4d989550-52ba-4f9d-9acd-da3ed22aa68d (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Audio Analysis (Duration check)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 787edcfe-1cf3-4087-b82a-7a9d00ef419d                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (1903 bytes)
+  - context.json: OK (28189 bytes)
+  - timeline.json: OK (1316 bytes)
+    Timeline content: {
+  "video": [
+    {
+      "asset_id": "96803a6e-3fcc-4d1b-b5bd-e6d1cd7f40ce",
+      "start": 0.0,
+      "end": 10.0,
+      "description": "Man talks about daily questioning, humorous and playful mood"
+    },
+    {
+      "asset_id": "96803a6e-3fcc-4d1b-b5bd-e6d1cd7f40ce",
+      "start": 20.0,
+      "end": 30.0,
+      "description": "Humorous banter about facial features"
+    }
+  ],
+  "audio": [
+    {
+      "asset_id": "6a1a952b-1b2d-425b-a85e-7965d77c987c",
+      "start_at": 10.0,
+      "vol": 0.8,
+      "description": "Clown laugh effect"
+    },
+    {
+      "asset_id": "6a1a952b-1b2d-425b-a85e-7965d77c987c",
+      "start_at": 30.0,
+      "vol": 0.8,
+      "description": "Clown laugh effect after facial features joke"
+    }
+  ],
+  "overlay": [
+    {
+      "asset_id": "be0e57fd-f7f8-4ce5-be03-3e2e9fdbd780",
+      "start_at": 5.0,
+      "duration": 2.0,
+      "description": "Smart thinking meme overlay"
+    },
+    {
+      "asset_id": "e9285abe-3e53-4b56-a60c-5088883c4280",
+      "start_at": 15.0,
+      "duration": 2.0,
+      "description": "Skeptical man image overlay"
+    },
+    {
+      "asset_id": "e1c1ff7a-d6fb-4149-9719-09cf26d6e162",
+      "start_at": 25.0,
+      "duration": 2.0,
+      "description": "Homer Simpson twerking overlay"
+    }
+  ]
+}
+  - final_video.mp4: OK (4406977 bytes)

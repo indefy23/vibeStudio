@@ -1,0 +1,177 @@
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: dc08afd8-1007-456f-b4d5-386a47db1b85
+
+[REAL-TEST] Manually running Orchestrator for dc08afd8-1007-456f-b4d5-386a47db1b85
+Analyzing asset: 36601cb5-ad31-411a-bd93-e964a7ef37b1 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 46a4dce6-ad7e-41cd-bb5f-10c851dd17db (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\assets\braco_cruzado.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 16d0de5b-5c83-436c-97ab-08390f976e43 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 3094e69a-e9f3-43e6-84ef-a13a31b26bc9 (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+Error transcribing with OpenAI: Error code: 400 - {'error': {'message': "Invalid file format. Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']", 'type': 'invalid_request_error', 'param': None, 'code': None}, 'usage': {'type': 'duration', 'seconds': 0}}
+  - Visual Analysis (Video Frame)...
+  - Classifying (LLM)...
+Analyzing asset: aa245224-94ae-4337-a4b5-24da8a65bd8d (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: 517484cd-90a3-4a5e-ac99-31e79c3ad188 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\assets\image (10).png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 5007e60c-71b0-4583-a42c-fbdec748c1ec (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\assets\image (11).png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: bbe5b23c-2bdc-4fae-a91e-94f467ca4b7d (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: 5f64b494-3ac8-4ce8-ab31-3f4f0bd1ca11 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: 750e079a-54b6-4327-8b0d-f612f9b952b5 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\assets\mão_abertas_frente.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: c972fa06-6379-4642-9b6e-8d8396af3c17 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\assets\neutro_apontandocamera.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 6190a3cd-414c-47e9-807c-646d5f5c34ef (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\assets\print_twitter.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 9e64d874-89a9-4cd1-9c63-446642e5969c (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: e4aaef91-bab5-4b6b-a8cc-592b967fbed6 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: e69fb433-ad59-4130-afaa-10f7178b4989 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: e9dcc763-d4ca-4d4e-96e2-4114eca71b0b                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[Sanitizer] Violation: Audio e69fb433-ad59-4130-afaa-10f7178b4989 in Video Track. Fixing...
+  [INFO] Applied subtitles from ./projects\dc08afd8-1007-456f-b4d5-386a47db1b85\overlays.srt
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (3859 bytes)
+  - context.json: OK (16066 bytes)
+  - timeline.json: OK (1912 bytes)
+    Timeline content: {
+  "video": [
+    {
+      "asset_id": "color_placeholder",
+      "start": 0.0,
+      "end": 34.29875,
+      "description": "Placeholder for Audio"
+    }
+  ],
+  "audio": [
+    {
+      "asset_id": "aa245224-94ae-4337-a4b5-24da8a65bd8d",
+      "start_at": 0.0,
+      "vol": 0.5,
+      "description": "Suspenseful ambient background music"
+    },
+    {
+      "asset_id": "e69fb433-ad59-4130-afaa-10f7178b4989",
+      "start_at": 0.0,
+      "vol": 1.0,
+      "description": "Moved from Video Track"
+    }
+  ],
+  "overlay": [
+    {
+      "asset_id": "36601cb5-ad31-411a-bd93-e964a7ef37b1",
+      "start_at": 3.0,
+      "duration": 4.2,
+      "description": "Boston Dynamics robot dog",
+      "position": "bottom_right",
+      "scale": 0.5
+    },
+    {
+      "asset_id": "e4aaef91-bab5-4b6b-a8cc-592b967fbed6",
+      "start_at": 10.0,
+      "duration": 3.2,
+      "description": "Walking robot GIF animation",
+      "position": "bottom_left",
+      "scale": 0.5
+    },
+    {
+      "asset_id": "16d0de5b-5c83-436c-97ab-08390f976e43",
+      "start_at": 15.0,
+      "duration": 5.0,
+      "description": "AI social network website",
+      "position": "top_right",
+      "scale": 0.5
+    },
+    {
+      "asset_id": "517484cd-90a3-4a5e-ac99-31e79c3ad188",
+      "start_at": 20.0,
+      "duration": 5.0,
+      "description": "Social media screenshot of AI tweet",
+      "position": "center",
+      "scale": 0.5
+    }
+  ],
+  "text": [
+    {
+      "content": "DANGER",
+      "start_at": 1.0,
+      "duration": 2.0,
+      "description": "Emphasize warning"
+    },
+    {
+      "content": "FUTURE",
+      "start_at": 5.0,
+      "duration": 2.0,
+      "description": "Emphasize future implications"
+    },
+    {
+      "content": "WATCH OUT",
+      "start_at": 10.0,
+      "duration": 1.5,
+      "description": "Alert moment for the audience"
+    }
+  ]
+}
+  - final_video.mp4: OK (1115090 bytes)

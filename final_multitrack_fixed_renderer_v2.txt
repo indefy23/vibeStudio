@@ -1,0 +1,98 @@
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: fdd2c299-b8f3-4350-98f5-ec1a8c6a76e2
+
+[REAL-TEST] Manually running Orchestrator for fdd2c299-b8f3-4350-98f5-ec1a8c6a76e2
+Analyzing asset: 62142512-8576-480b-92e2-75f1b6a12b21 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: d884ca1b-2e2c-4360-9f41-5b396c7df901 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: f1753151-f8af-4299-b643-94c7b685218a (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 9340d5f8-af1a-43bc-aeb7-109e383f40b6 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: ffae5ffc-76ac-425e-8d1e-87436bf80edf (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+  - Visual Analysis (Video Frame)...
+  - Classifying (LLM)...
+Analyzing asset: 8df428b6-3491-4819-8748-aabc6d5a2a72 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 3de4761c-7475-47b4-b1b3-b69ce93e6935                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (1903 bytes)
+  - context.json: OK (30032 bytes)
+  - timeline.json: OK (1033 bytes)
+    Timeline content: {
+  "video": [
+    {
+      "asset_id": "ffae5ffc-76ac-425e-8d1e-87436bf80edf",
+      "start": 0.0,
+      "end": 8.0,
+      "description": "Funny conversation segment"
+    },
+    {
+      "asset_id": "ffae5ffc-76ac-425e-8d1e-87436bf80edf",
+      "start": 20.0,
+      "end": 28.0,
+      "description": "Amusing dialogue"
+    }
+  ],
+  "audio": [
+    {
+      "asset_id": "d884ca1b-2e2c-4360-9f41-5b396c7df901",
+      "start_at": 8.0,
+      "vol": 0.8,
+      "description": "Clown laugh effect"
+    },
+    {
+      "asset_id": "d884ca1b-2e2c-4360-9f41-5b396c7df901",
+      "start_at": 28.0,
+      "vol": 0.8,
+      "description": "Clown laugh effect"
+    }
+  ],
+  "overlay": [
+    {
+      "asset_id": "62142512-8576-480b-92e2-75f1b6a12b21",
+      "start_at": 5.0,
+      "duration": 1.0,
+      "description": "Clever reaction"
+    },
+    {
+      "asset_id": "9340d5f8-af1a-43bc-aeb7-109e383f40b6",
+      "start_at": 22.0,
+      "duration": 1.0,
+      "description": "Surprised reaction"
+    }
+  ]
+}
+  - final_video.mp4: OK (3665749 bytes)

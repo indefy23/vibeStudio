@@ -1,0 +1,55 @@
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 38, in run
+    result = crew.run()
+             ^^^^^^^^^^
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\crew.py", line 54, in run
+    { "asset_id": "main_vid_id", "start": 0.0, "end": 5.0, "description": "Intro" }
+ValueError: Invalid format specifier ' "main_vid_id", "start": 0.0, "end": 5.0, "description": "Intro" ' for object of type 'str'
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 80, in test_real_pipeline
+    run_orchestrator_manually(project_id)
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 22, in run_orchestrator_manually
+    orchestrator.run()
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 91, in run
+    raise e
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 38, in run
+    result = crew.run()
+             ^^^^^^^^^^
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\crew.py", line 54, in run
+    { "asset_id": "main_vid_id", "start": 0.0, "end": 5.0, "description": "Intro" }
+ValueError: Invalid format specifier ' "main_vid_id", "start": 0.0, "end": 5.0, "description": "Intro" ' for object of type 'str'
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: 75d20f1f-5a93-4b65-bf39-6279dec9fd0e
+
+[REAL-TEST] Manually running Orchestrator for 75d20f1f-5a93-4b65-bf39-6279dec9fd0e
+Analyzing asset: e3187d03-f502-4329-b503-0686549f6a76 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+Analyzing asset: 7cd5c2b0-e314-4f94-a3e9-3a737ba33e93 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Audio Analysis (Duration check)...
+Analyzing asset: 8db79924-02a0-413e-8da0-6256a4d118b5 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+Analyzing asset: 6ddf541e-c7cb-4ce0-a2da-9b32017a98a2 (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+Analyzing asset: a51240a5-658b-44ab-9c5f-da2c76734f04 (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+  - Visual Analysis (Video Frame)...
+Analyzing asset: 3d94a7c1-cfeb-4edc-8c7c-8689a1ed6392 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Audio Analysis (Duration check)...
+Orchestrator failed: Invalid format specifier ' "main_vid_id", "start": 0.0, "end": 5.0, "description": "Intro" ' for object of type 'str'
+[REAL-TEST] Execution Logic Failed: Invalid format specifier ' "main_vid_id", "start": 0.0, "end": 5.0, "description": "Intro" ' for object of type 'str'
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (1895 bytes)
+  - context.json: OK (29128 bytes)
+  - timeline.json: MISSING (0 bytes)
+  - final_video.mp4: MISSING (0 bytes)

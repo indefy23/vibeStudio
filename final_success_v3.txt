@@ -1,0 +1,56 @@
+[REAL-TEST] Starting Pipeline with c:\Users\Desk\Desktop\vibeStudio\backend\tests\assets\ow18zpUufxB0QeDCDYaB0EEgSFp6WgWJSUEIBc.mp4
+[REAL-TEST] OpenAI Key Present: Yes
+[REAL-TEST] Project Created: dba406e0-c5ed-4b0a-913e-931ba32a55b3
+
+[REAL-TEST] Manually running Orchestrator for dba406e0-c5ed-4b0a-913e-931ba32a55b3
+Analyzing asset: 614bdc87-21a4-4701-9fd9-990d090a431f (AssetType.VIDEO)
+  - Transcribing...
+  - Visual Analysis (Video Frame)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: 5683d187-ca30-4088-b2ac-d924ad5b0656                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[Renderer] Processing Clip: 614bdc87-21a4-4701-9fd9-990d090a431f -> ./projects\dba406e0-c5ed-4b0a-913e-931ba32a55b3\assets\test_video.mp4
+[Renderer] Processing Clip: 614bdc87-21a4-4701-9fd9-990d090a431f -> ./projects\dba406e0-c5ed-4b0a-913e-931ba32a55b3\assets\test_video.mp4
+[Renderer] Processing Clip: 614bdc87-21a4-4701-9fd9-990d090a431f -> ./projects\dba406e0-c5ed-4b0a-913e-931ba32a55b3\assets\test_video.mp4
+[REAL-TEST] Orchestrator run completed.
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (672 bytes)
+  - context.json: OK (23462 bytes)
+  - timeline.json: OK (711 bytes)
+    Timeline content: {
+  "timeline": [
+    {
+      "asset_id": "614bdc87-21a4-4701-9fd9-990d090a431f",
+      "start": 0.0,
+      "end": 10.0,
+      "description": "Introduction of the conversation, setting the playful and casual tone."
+    },
+    {
+      "asset_id": "614bdc87-21a4-4701-9fd9-990d090a431f",
+      "start": 22.0,
+      "end": 35.0,
+      "description": "The discussion about the physical feature 'maxilar' which seems to be a key part of the playful banter."
+    },
+    {
+      "asset_id": "614bdc87-21a4-4701-9fd9-990d090a431f",
+      "start": 40.0,
+      "end": 50.933333,
+      "description": "Conclusion where the mood remains playful and captures the essence of the interaction."
+    }
+  ]
+}
+  - final_video.mp4: OK (7280066 bytes)

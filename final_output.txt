@@ -1,0 +1,81 @@
+[REAL-TEST] Starting Pipeline with c:\Users\Desk\Desktop\vibeStudio\backend\tests\assets\ow18zpUufxB0QeDCDYaB0EEgSFp6WgWJSUEIBc.mp4
+[REAL-TEST] OpenAI Key Present: Yes
+[REAL-TEST] Project Created: 85f4e2f4-44c3-4411-a88a-e880112a422a
+
+[REAL-TEST] Manually running Orchestrator for 85f4e2f4-44c3-4411-a88a-e880112a422a
+Analyzing asset: f5577574-29c9-49d2-a8fd-0a16d9542eb4 (AssetType.VIDEO)
+  - Transcribing...
+[DEBUG] HITTING OPENAI API for transcription: ./projects\85f4e2f4-44c3-4411-a88a-e880112a422a\assets\test_video.mp4
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: b66dcb99-49b4-4cd7-b1a4-30790294bd1e                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 76, in run
+    self.renderer.render_timeline(
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 51, in render_timeline
+    concat_inputs.append(vid)
+    ^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'concat_inputs' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 61, in test_real_pipeline
+    run_orchestrator_manually(project_id)
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 22, in run_orchestrator_manually
+    orchestrator.run()
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 91, in run
+    raise e
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 76, in run
+    self.renderer.render_timeline(
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 51, in render_timeline
+    concat_inputs.append(vid)
+    ^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'concat_inputs' where it is not associated with a value
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[Renderer] Processing Clip: f5577574-29c9-49d2-a8fd-0a16d9542eb4 -> ./projects\85f4e2f4-44c3-4411-a88a-e880112a422a\assets\test_video.mp4
+Orchestrator failed: cannot access local variable 'concat_inputs' where it is not associated with a value
+[REAL-TEST] Execution Logic Failed: cannot access local variable 'concat_inputs' where it is not associated with a value
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (664 bytes)
+  - context.json: OK (23132 bytes)
+  - timeline.json: OK (954 bytes)
+    Timeline content: {
+  "clips": [
+    {
+      "asset_id": "f5577574-29c9-49d2-a8fd-0a16d9542eb4",
+      "start": 0.0,
+      "end": 8.0,
+      "description": "Introduction and setup of the conversation, establishing the dynamic between the speakers."
+    },
+    {
+      "asset_id": "f5577574-29c9-49d2-a8fd-0a16d9542eb4",
+      "start": 8.0,
+      "end": 18.0,
+      "description": "Highlighting the humorous exchange about daily questions and shifting topics."
+    },
+    {
+      "asset_id": "f5577574-29c9-49d2-a8fd-0a16d9542eb4",
+      "start": 18.0,
+      "end": 35.0,
+      "description": "Focus on the playful discussion about physical features and the idea of recording these thoughts."
+    },
+    {
+      "asset_id": "f5577574-29c9-49d2-a8fd-0a16d9542eb4",
+      "start": 35.0,
+      "end": 50.933333,
+      "description": "Continuation and conclusion of the conversation, emphasizing the light-hearted banter and personality."
+    }
+  ]
+}
+  - final_video.mp4: MISSING (0 bytes)

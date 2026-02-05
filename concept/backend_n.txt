@@ -1,0 +1,351 @@
+================================================================================
+VIBEESTUDIO - ARQUITETURA DE BACKEND (LOCALHOST FOCUS)
+Documento: Arquitetura Técnica e Funcional
+Data: 2026-02-04 01:06:48
+Versão: 2.0
+VISÃO GERAL
+
+O VibeEstudio é um sistema de edição de vídeo com IA baseado em arquitetura agêntica.
+Este documento descreve a arquitetura para desenvolvimento localhost (PoC e MVP).
+O backend é composto por:
+
+Core estático (não-IA): gerenciamento de projetos, assets, filas, armazenamento
+Agentes especializados (1 na PoC, 2 no MVP)
+API REST (FastAPI) para entrada/saída
+Serviços de fila (Celery + Redis) para processamento assíncrono
+Armazenamento local (filesystem) para assets e resultados
+Banco de dados leve (SQLite para PoC, PostgreSQL opcional para MVP)
+FLUXO DE DADOS PRINCIPAL
+
+Upload de vídeo/áudio/imagens → Análise de áudio → Composição → Refinamento → Avaliação → Exportação
+
+Cada stage produz um JSON que alimenta o próximo. Estrutura hierárquica com manifesto unificador.
+
+ESTRUTURA DE DADOS (JSON HIERÁRQUICO + MANIFESTO)
+
+Projeto (pasta):
+manifest.json - Metadados do projeto e ponteiros para stages (SPL invariante)
+project.json - Informações gerais (nome, assets, configurações)
+audio_analysis.json - Saída do AudioAnalysis (transcrição, segmentos, emoção)
+timeline_rough.json - Saída da Composition (timeline com cortes, textos iniciais, SFX)
+timeline_refined.json - Saída do Refinement (efeitos visuais, keyframes, transições)
+evaluation.json - Saída do Evaluation (score, feedback, sugestões)
+final_video.mp4 - Vídeo renderizado final
+
+Schema manifesto (manifest.json) - INVARIANTE SPL:
+{
+"project_id": "uuid",
+"name": "string",
+"created_at": "iso",
+"assets": [
+{"id": "a1", "type": "video|audio|image", "path": "assets/a1.mp4"}
+],
+"stages": {
+"audio_analysis": "audio_analysis.json",
+"composition": "timeline_rough.json",
+"refinement": "timeline_refined.json",
+"evaluation": "evaluation.json"
+},
+"current_stage": "composition",
+"status": "pending|running|completed|error"
+}
+
+ARQUITETURA DE AGENTES (SPL VARIANTES)
+
+4.1. PoC (Proof of Concept) - 1 Agente (Totalmente Funcional)
+
+Core (módulo estático):
+
+Recebe requisição HTTP POST /projects
+Salva assets no filesystem, cria manifest.json e project.json
+Enfileira task Celery para o agente
+Monitora status via banco de dados
+Endpoints GET para consulta de estado e download de JSONs
+
+BuildAgent (único, executa todas as etapas internamente):
+
+Lê assets do projeto
+Whisper para transcrição e segmentação de áudio
+Detecta silêncios, emoção da voz (PyAnnote opcional)
+Gera timeline_rough.json: cortes automáticos, legendas sincronizadas, SFX básicos
+Aplica efeitos visuais simples (zoom, transições básicas) → timeline_refined.json
+Avaliação leve (regras heurísticas ou modelo pequeno) → evaluation.json
+Opcional: renderiza final_video.mp4 via FFmpeg
+
+PoC Scope:
+
+Entrada: 1 arquivo de vídeo (com áudio) ou áudio separado
+Saída: timeline_rough.json, timeline_refined.json, evaluation.json (todos gerados)
+Pipeline único, sem separação de agentes
+Foco em demonstração de conceito, código simples
+
+4.2. MVP (Minimum Viable Product) - 2 Agentes (Separação Lógica)
+
+Core (idem PoC, mas suporta múltiplas tasks):
+
+Gerencia upload, manifest, enfileiramento de tasks específicas
+Endpoints para consulta de cada stage
+
+BuildAgent (AudioAnalysis + Composition):
+
+Whisper transcrição + PyAnnote diarização (opcional)
+Análise de emoção da voz (librosa)
+Gera audio_analysis.json
+Cria timeline_rough.json com cortes, textos, SFX iniciais, B-roll básico
+
+PolishAgent (Refinement + Evaluation):
+
+Consome timeline_rough.json
+Aplica efeitos visuais (transições, color grading, keyframes)
+Gera timeline_refined.json
+Usa Gemini 3 Flash (ou modelo leve) para avaliação multimodal
+Gera evaluation.json com score e feedback
+Renderização opcional via FFmpeg
+
+MVP Features:
+
+Separação clara de responsabilidades (construção vs polimento)
+Pipeline com handoff explícito via JSONs
+Mais fácil de estender e testar cada componente
+API REST (FastAPI) - ENDPOINTS LOCALHOST
+
+5.1. Endpoints PoC (1 agente)
+
+POST /projects
+
+Body (multipart/form-data): name, assets (arquivos)
+Response: {"project_id": "uuid", "status": "queued"}
+
+GET /projects/{project_id}
+
+Response: status, current_stage, manifest
+
+GET /projects/{project_id}/timeline_rough
+GET /projects/{project_id}/timeline_refined
+GET /projects/{project_id}/evaluation
+
+Response: JSON correspondente
+
+POST /projects/{project_id}/render (opcional)
+
+Response: {"render_id": "uuid", "status": "queued"}
+
+5.2. Endpoints MVP (2 agentes)
+
+POST /projects (igual)
+GET /projects/{project_id} (igual)
+GET /projects/{project_id}/audio_analysis
+GET /projects/{project_id}/timeline_rough
+GET /projects/{project_id}/timeline_refined
+GET /projects/{project_id}/evaluation
+POST /projects/{project_id}/render
+
+SERVIÇOS E FILAS (Celery + Redis) - CONFIG LOCALHOST
+Redis local: redis://localhost:6379/0
+Celery workers:
+PoC: single_worker (executa BuildAgent completo)
+MVP: build_worker (executa BuildAgent), polish_worker (executa PolishAgent)
+Tasks assíncronas, status persistido em SQLite/PostgreSQL
+BANCO DE DADOS - LOCALHOST
+
+PoC: SQLite (arquivo local vibeestudio.db)
+
+Tabelas: projects, assets, tasks (simplificado)
+
+MVP: PostgreSQL (local) ou SQLite avançado
+
+Tabelas: projects, assets, tasks, evaluations
+ARMAZENAMENTO - FILESYSTEM LOCAL
+
+Estrutura de pastas no diretório do projeto:
+projects/{project_id}/
+manifest.json
+project.json
+audio_analysis.json
+timeline_rough.json
+timeline_refined.json
+evaluation.json
+assets/
+video1.mp4
+audio1.wav
+renders/
+final.mp4
+
+CONFIGURAÇÃO LOCALHOST
+
+9.1. Variáveis de Ambiente (.env)
+DATABASE_URL=sqlite:///vibeestudio.db # PoC
+
+ou PostgreSQL: postgresql://user:pass@localhost:5432/vibeestudio
+
+REDIS_URL=redis://localhost:6379/0
+STORAGE_PATH=./projects # diretório local
+WHISPER_MODEL=tiny # ou base
+GEMINI_API_KEY= # opcional, só no MVP se usar
+
+9.2. Dependências Python (requirements.txt)
+fastapi, uvicorn, celery, redis, sqlalchemy, psycopg2-binary (opcional),
+openai-whisper, torch, torchvision, torchaudio, librosa, ffmpeg-python,
+google-generativeai (MVP), opentimelineio, python-multipart
+
+9.3. Comandos de Execução (desenvolvimento)
+
+Iniciar Redis: redis-server
+Iniciar API: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+Iniciar Celery worker: celery -A tasks worker --loglevel=info --concurrency=2
+SPL (SOFTWARE PRODUCT LINE) - INVARIANTES E PONTOS DE VARIAÇÃO
+
+INVARIANTES (devem sempre ser mantidos):
+
+Estrutura de pastas do projeto (manifest.json + JSONs por stage)
+Schema do manifest.json (campos fixos)
+Separação de responsabilidades entre Core (estático) e Agentes (dinâmico)
+Uso de filas assíncronas (Celery)
+Armazenamento por project_id isolado
+
+PONTOS DE VARIAÇÃO (customizáveis por produto):
+
+Número e tipo de agentes (1 PoC, 2 MVP, mais futuramente)
+Modelos de IA usados (Whisper tiny/base/small, Gemini, heurísticas)
+Pipeline stages (pode adicionar/remover stages, desde que atualize manifest)
+Backend de armazenamento (filesystem, S3, etc)
+Banco de dados (SQLite, PostgreSQL)
+Modo de execução (síncrono para debug, assíncrono para produção)
+POÇ VS MVP: COMPARAÇÃO DETALHADA (LOCALHOST)
+
+11.1. PoC (1 Agente - BuildAgent completo)
+
+Componentes:
+
+Core estático (API + gerenciamento de projeto)
+BuildAgent (executa todas as etapas em sequência)
+
+Funcionalidades:
+
+Upload de vídeo/áudio
+Transcrição com Whisper tiny
+Detecção de pausas e cortes automáticos
+Legendas sincronizadas
+SFX básicos (aplausos, whoosh)
+Efeitos visuais simples (zoom, transições)
+Avaliação por regras heurísticas (ex: duração, número de cortes)
+Exportação de timeline_rough.json, timeline_refined.json, evaluation.json
+Renderização opcional via FFmpeg
+
+Limitações:
+
+Sem diarização avançada
+Sem análise de emoção robusta
+Sem B-roll inteligente
+Avaliação limitada
+
+Complexidade: Muito baixa (API + 1 worker + Redis + SQLite)
+
+11.2. MVP (2 Agentes - BuildAgent + PolishAgent)
+
+Componentes:
+
+Core estático (idem)
+BuildAgent (AudioAnalysis + Composition)
+PolishAgent (Refinement + Evaluation)
+
+Funcionalidades adicionais:
+
+Diarização com PyAnnote (opcional)
+Análise de emoção da voz (librosa)
+B-roll selection por keywords
+Efeitos visuais avançados (transições, color grading, keyframes)
+Avaliação com Gemini 3 Flash (multimodal)
+Score de qualidade e sugestões
+Renderização otimizada
+
+Complexidade: Baixa-Média (API + 2 workers + Redis + PostgreSQL/SQLite)
+
+EXEMPLO DE FLUXO POÇ
+
+Cliente POST /projects com vídeo.mp4
+
+Core salva asset, cria manifest.json, enfileira task build_task
+
+BuildWorker executa (tudo em um):
+a. Whisper transcrição → segmentos
+b. Detecta pausas > 1s → pontos de corte
+c. Gera legendas alinhadas
+d. Adiciona SFX em cortes
+e. Aplica efeitos visuais simples
+f. Avalia com heurísticas
+g. Escreve timeline_rough.json, timeline_refined.json, evaluation.json
+h. Atualiza manifest.current_stage = completed
+
+Cliente GET /projects/{id} baixa JSONs
+
+EXEMPLO DE FLUXO MVP
+
+POST /projects
+
+Core enfileira AudioAnalysisTask
+
+BuildWorker executa AudioAnalysis → audio_analysis.json
+
+Core enfileira CompositionTask
+
+BuildWorker executa Composition → timeline_rough.json
+
+Core enfileira RefinementTask
+
+PolishWorker executa Refinement → timeline_refined.json
+
+Core enfileira EvaluationTask
+
+PolishWorker executa Evaluation → evaluation.json
+
+Core atualiza manifest.current_stage = completed
+
+MONITORAMENTO E LOGS (LOCALHOST)
+
+Logs em arquivo: logs/app.log, logs/worker.log
+Console output para debug
+Status de tasks no banco de dados
+SEGURANÇA (DESENVOLVIMENTO)
+Sem autenticação (localhost only)
+Validação básica de uploads (tamanho máximo 500MB)
+Rate limiting desativado em dev
+TESTING LOCAL
+Usar pytest para testes unitários de agentes
+Testes de integração com vídeos de exemplo em tests/fixtures/
+Mock de modelos grandes (Whisper tiny, Gemini) em dev
+ROADMAP LOCALHOST
+
+Fase 1 (PoC):
+
+Implementar Core + API
+BuildAgent único com Whisper tiny + FFmpeg
+Manifest e JSON hierárquico
+Testar com 3 vídeos curtos (<1 min)
+
+Fase 2 (MVP):
+
+Separar BuildAgent e PolishAgent
+Integrar PyAnnote e librosa
+Adicionar Gemini API (chave de teste)
+Dashboard simples (FastAPI templates) para visualizar JSONs
+
+Fase 3 (Refinamento):
+
+Melhorar B-roll selection
+Adicionar iteração (re-run refinement)
+Cache de resultados intermediários
+CONCLUSÃO
+
+Arquitetura simplificada para desenvolvimento localhost:
+
+Core estático (não-IA) cuida de infraestrutura
+PoC: 1 agente (BuildAgent) para validação rápida
+MVP: 2 agentes (Build + Polish) para separação clara
+SPL: invariantes garantem consistência, pontos de variação permitem evolução
+JSON hierárquico com manifesto facilita debug e extensão
+
+Foco: simplicidade, rapidez de desenvolvimento, fácil de rodar localmente.
+
+================================================================================
+FIM DO DOCUMENTO

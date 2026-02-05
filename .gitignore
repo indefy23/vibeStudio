@@ -1,0 +1,5 @@
+projects
+backend/tests
+backend/exports
+backend/assets
+backend/.env

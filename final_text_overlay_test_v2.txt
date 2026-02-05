@@ -1,0 +1,258 @@
+[REAL-TEST] OpenAI Key Present: Yes
+
+[REAL-TEST] Creating Project with Multi-Track Assets...
+[REAL-TEST] Project Created: ee9d2afc-3510-475a-b742-026e9400dd32
+
+[REAL-TEST] Manually running Orchestrator for ee9d2afc-3510-475a-b742-026e9400dd32
+Analyzing asset: 1611e771-bc8f-456a-b66b-2018b9215fec (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 56083cda-9dd7-4444-8a98-d44a5f3606c9 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\braco_cruzado.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: eaec6fb0-1f9c-443e-b5bc-633bc7b680af (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 40445f6e-613d-4e72-9391-9c20fff339bb (AssetType.VIDEO)
+  - Probing metadata...
+  - Transcribing...
+Error transcribing with OpenAI: Error code: 400 - {'error': {'message': "Invalid file format. Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']", 'type': 'invalid_request_error', 'param': None, 'code': None}, 'usage': {'type': 'duration', 'seconds': 0}}
+  - Visual Analysis (Video Frame)...
+  - Classifying (LLM)...
+Analyzing asset: 205e4502-b956-46a7-a7a3-1bf0bfc457f9 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: b2aeac61-91c7-4bea-9bdd-7264410dcd1d (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\image (10).png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 4262b676-0118-4362-a4ff-20ffa66e2af9 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\image (11).png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 543ab357-5b44-4a95-9696-f86bc6de8d31 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: 3a6d3289-16c1-4b4f-80f9-f901327d1fbc (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: 26361223-6d74-4f07-8273-8813301380b3 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\mão_abertas_frente.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 53f71231-1d73-4b83-bd6b-dacc7e7f3336 (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\neutro_apontandocamera.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 8380b2f7-c6d8-4aa1-bdb7-d612a9dbf31d (AssetType.IMAGE)
+  - Probing metadata...
+Error probing file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\print_twitter.png: 'duration'
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: 40893826-8d67-4597-85c1-2c4c2ddedc1b (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
+Analyzing asset: c94dfdf4-7044-4c3d-8948-0f8833a3114f (AssetType.IMAGE)
+  - Probing metadata...
+  - Visual Analysis (Image)...
+  - Classifying (LLM)...
+Analyzing asset: fc88d542-19c5-4909-91dc-43e11b3c46c6 (AssetType.VIDEO)
+  - Probing metadata...
+  - Visual Analysis (Video Frame)...
+Error extracting frame from ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\transcription_roteiro.txt: ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.0 (x86_64-posix-seh-rev2, Built by MinGW-Builds project)
+  configuration: --enable-libmp3lame --cc=gcc --cxx=g++ --enable-dxva2 --enable-libopus --enable-libvorbis --enable-libvpx --enable-libass --enable-libaom --enable-libdav1d --enable-libzimg --arch=x86_64 --disable-debug --disable-doc --enable-gpl --enable-version3 --enable-nonfree --enable-openssl --disable-xlib --disable-libxcb --enable-libx264 --enable-libx265 --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-cuvid --enable-amf --enable-libsvtav1 --enable-libvpl --prefix=/c/gitlab/craft/windows-mingw_64-gcc --libdir=/c/gitlab/craft/windows-mingw_64-gcc/lib --disable-static --enable-shared
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+Input #0, srt, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\transcription_roteiro.txt':
+  Duration: N/A, bitrate: N/A
+  Stream #0:0: Subtitle: subrip (srt)
+Output #0, image2, to './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\transcription_roteiro.txt_thumb.jpg':
+[out#0/image2 @ 000002628303d380] Output file does not contain any stream
+Error opening output file ./projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\transcription_roteiro.txt_thumb.jpg.
+Error opening output files: Invalid argument
+
+  - Failed to extract frame for visual analysis.
+  - Classifying (LLM)...
+Analyzing asset: 4bb835a8-560c-4e89-b0b3-a8e10f5d9466 (AssetType.AUDIO)
+  - Probing metadata...
+  - Transcribing...
+  - Classifying (LLM)...
++-------------------------- Crew Execution Started ---------------------------+
+|                                                                             |
+|  Crew Execution Started                                                     |
+|  Name: crew                                                                 |
+|  ID: d36ede3d-1e6b-4246-abb4-e33578c09050                                   |
+|  Tool Args:                                                                 |
+|                                                                             |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+[EventBus Error] Handler 'on_agent_logs_started' failed for event 'AgentLogsStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_started' failed for event 'LLMCallStartedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_llm_call_completed' failed for event 'LLMCallCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_agent_logs_execution' failed for event 'AgentLogsExecutionEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_task_completed' failed for event 'TaskCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+[EventBus Error] Handler 'on_crew_completed' failed for event 'CrewKickoffCompletedEvent': 'charmap' codec can't encode character '\U0001f680' in position 0: character maps to <undefined>
+ffmpeg stdout: None
+ffmpeg stderr: ffmpeg version 7.1 Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.0 (x86_64-posix-seh-rev2, Built by MinGW-Builds project)
+  configuration: --enable-libmp3lame --cc=gcc --cxx=g++ --enable-dxva2 --enable-libopus --enable-libvorbis --enable-libvpx --enable-libass --enable-libaom --enable-libdav1d --enable-libzimg --arch=x86_64 --disable-debug --disable-doc --enable-gpl --enable-version3 --enable-nonfree --enable-openssl --disable-xlib --disable-libxcb --enable-libx264 --enable-libx265 --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-cuvid --enable-amf --enable-libsvtav1 --enable-libvpl --prefix=/c/gitlab/craft/windows-mingw_64-gcc --libdir=/c/gitlab/craft/windows-mingw_64-gcc/lib --disable-static --enable-shared
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+[mp3 @ 000001eb638a7600] Estimating duration from bitrate, this may be inaccurate
+Input #0, mp3, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\WhatsApp Ptt 2026-02-01 at 19.23.40.MP3':
+  Metadata:
+    encoder         : LAME3.101 (beta 2)
+  Duration: 00:00:34.30, start: 0.000000, bitrate: 192 kb/s
+  Stream #0:0: Audio: mp3 (mp3float), 44100 Hz, stereo, fltp, 192 kb/s
+Input #1, gif, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\boston-dynamics-robot-dog.gif':
+  Duration: 00:00:04.20, start: 0.000000, bitrate: 794 kb/s
+  Stream #1:0: Video: gif, bgra, 165x213, 10 fps, 10 tbr, 100 tbn
+Input #2, gif, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\tesla-optimus.gif':
+  Duration: 00:00:03.20, start: 0.000000, bitrate: 1233 kb/s
+  Stream #2:0: Video: gif, bgra, 220x220, 10 fps, 10 tbr, 100 tbn
+Input #3, png_pipe, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\print_twitter.png':
+  Duration: N/A, bitrate: N/A
+  Stream #3:0: Video: png, rgba(pc, gbr/bt709/iec61966-2-1), 576x715 [SAR 3779:3779 DAR 576:715], 25 fps, 25 tbr, 25 tbn
+Input #4, png_pipe, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\image (11).png':
+  Duration: N/A, bitrate: N/A
+  Stream #4:0: Video: png, rgb24(pc, gbr/unknown/unknown), 584x627, 25 fps, 25 tbr, 25 tbn
+Input #5, png_pipe, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\image (10).png':
+  Duration: N/A, bitrate: N/A
+  Stream #5:0: Video: png, rgba(pc, gbr/bt709/iec61966-2-1), 595x734 [SAR 3779:3779 DAR 595:734], 25 fps, 25 tbr, 25 tbn
+[mp3 @ 000001eb651e8980] Estimating duration from bitrate, this may be inaccurate
+Input #6, mp3, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\drone-high-tension-and-suspense-ambient-background-162365 (1).mp3':
+  Duration: 00:00:33.10, start: 0.000000, bitrate: 256 kb/s
+  Stream #6:0: Audio: mp3 (mp3float), 48000 Hz, stereo, fltp, 256 kb/s
+[mp3 @ 000001eb651ea040] Estimating duration from bitrate, this may be inaccurate
+Input #7, mp3, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\keyboard-typing-sound-effect-335503.mp3':
+  Duration: 00:00:08.10, start: 0.000000, bitrate: 255 kb/s
+  Stream #7:0: Audio: mp3 (mp3float), 44100 Hz, stereo, fltp, 256 kb/s
+[mp3 @ 000001eb6537e980] Estimating duration from bitrate, this may be inaccurate
+Input #8, mp3, from './projects\ee9d2afc-3510-475a-b742-026e9400dd32\assets\riser-hit-sfx-001-289802.mp3':
+  Duration: 00:00:04.49, start: 0.000000, bitrate: 255 kb/s
+  Stream #8:0: Audio: mp3 (mp3float), 44100 Hz, stereo, fltp, 256 kb/s
+[fc#0 @ 000001eb637e6440] Stream specifier ':v' in filtergraph description [0:v]trim=end=34.29875:start=0.0[s0];[s0]setpts=PTS-STARTPTS[s1];[0:a]atrim=end=34.29875:start=0.0[s2];[s2]asetpts=PTS-STARTPTS[s3];[s1][s3]concat=a=1:n=1:v=1[s4][s5];[1]scale=300:-1[s6];[s6]trim=duration=4.2[s7];[s7]setpts=PTS-STARTPTS[s8];[s4][s8]overlay=enable=between(t\,5.0\,9.2):eof_action=repeat:x=(W-w)/2:y=(H-h)/2[s9];[2]scale=300:-1[s10];[s10]trim=duration=3.2[s11];[s11]setpts=PTS-STARTPTS[s12];[s9][s12]overlay=enable=between(t\,12.0\,15.2):eof_action=repeat:x=(W-w)/2:y=(H-h)/2[s13];[3]scale=300:-1[s14];[s14]trim=duration=5.0[s15];[s15]setpts=PTS-STARTPTS[s16];[s13][s16]overlay=enable=between(t\,20.0\,25.0):eof_action=repeat:x=(W-w)/2:y=(H-h)/2[s17];[4]scale=300:-1[s18];[s18]trim=duration=5.0[s19];[s19]setpts=PTS-STARTPTS[s20];[s17][s20]overlay=enable=between(t\,25.0\,30.0):eof_action=repeat:x=(W-w)/2:y=(H-h)/2[s21];[5]scale=300:-1[s22];[s22]trim=duration=5.0[s23];[s23]setpts=PTS-STARTPTS[s24];[s21][s24]overlay=enable=between(t\,28.0\,33.0):eof_action=repeat:x=(W-w)/2:y=(H-h)/2[s25];[6:a]adelay=0|0[s26];[s26]volume=0.8[s27];[7:a]adelay=10000|10000[s28];[s28]volume=0.5[s29];[8:a]adelay=30000|30000[s30];[s30]volume=0.7[s31];[s5][s27][s29][s31]amix=duration=first:inputs=4[s32] matches no streams.
+Error binding filtergraph inputs/outputs: Invalid argument
+
+Orchestrator failed: ffmpeg error (see stderr output for detail)
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 76, in run
+    self.renderer.render_timeline(
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 156, in render_timeline
+    raise e
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 149, in render_timeline
+    out.run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
+  File "C:\Users\Desk\AppData\Local\Programs\Python\Python312\Lib\site-packages\ffmpeg\_run.py", line 325, in run
+    raise Error('ffmpeg', out, err)
+ffmpeg._run.Error: ffmpeg error (see stderr output for detail)
+[REAL-TEST] Execution Logic Failed: ffmpeg error (see stderr output for detail)
+Traceback (most recent call last):
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 80, in test_real_pipeline
+    run_orchestrator_manually(project_id)
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\tests\functional_test_real.py", line 22, in run_orchestrator_manually
+    orchestrator.run()
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 91, in run
+    raise e
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\agents\orchestrator.py", line 76, in run
+    self.renderer.render_timeline(
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 156, in render_timeline
+    raise e
+  File "C:\Users\Desk\Desktop\vibeStudio\backend\app\engine\renderer.py", line 149, in render_timeline
+    out.run(overwrite_output=True, capture_stdout=True, capture_stderr=True)
+  File "C:\Users\Desk\AppData\Local\Programs\Python\Python312\Lib\site-packages\ffmpeg\_run.py", line 325, in run
+    raise Error('ffmpeg', out, err)
+ffmpeg._run.Error: ffmpeg error (see stderr output for detail)
+
+[REAL-TEST] Artifact Verification:
+  - manifest.json: OK (4067 bytes)
+  - context.json: OK (16464 bytes)
+  - timeline.json: OK (1640 bytes)
+    Timeline content: {
+  "video": [
+    {
+      "asset_id": "4bb835a8-560c-4e89-b0b3-a8e10f5d9466",
+      "start": 0.0,
+      "end": 34.29875,
+      "description": "Technology commentary in Portuguese"
+    }
+  ],
+  "audio": [
+    {
+      "asset_id": "205e4502-b956-46a7-a7a3-1bf0bfc457f9",
+      "start_at": 0.0,
+      "vol": 0.8,
+      "description": "Tension ambient background"
+    },
+    {
+      "asset_id": "543ab357-5b44-4a95-9696-f86bc6de8d31",
+      "start_at": 10.0,
+      "vol": 0.5,
+      "description": "Keyboard typing sound effect"
+    },
+    {
+      "asset_id": "40893826-8d67-4597-85c1-2c4c2ddedc1b",
+      "start_at": 30.0,
+      "vol": 0.7,
+      "description": "Riser with hit sound for dramatic emphasis"
+    }
+  ],
+  "overlay": [
+    {
+      "asset_id": "1611e771-bc8f-456a-b66b-2018b9215fec",
+      "start_at": 5.0,
+      "duration": 4.2,
+      "description": "Robot dog walking visual"
+    },
+    {
+      "asset_id": "c94dfdf4-7044-4c3d-8948-0f8833a3114f",
+      "start_at": 12.0,
+      "duration": 3.2,
+      "description": "Robot walking unsteadily"
+    },
+    {
+      "asset_id": "8380b2f7-c6d8-4aa1-bdb7-d612a9dbf31d",
+      "start_at": 20.0,
+      "duration": 5.0,
+      "description": "Dystopian AI manifesto image"
+    },
+    {
+      "asset_id": "4262b676-0118-4362-a4ff-20ffa66e2af9",
+      "start_at": 25.0,
+      "duration": 5.0,
+      "description": "Security breach warning screenshot"
+    },
+    {
+      "asset_id": "b2aeac61-91c7-4bea-9bdd-7264410dcd1d",
+      "start_at": 28.0,
+      "duration": 5.0,
+      "description": "Humorous AI takeover tweet"
+    }
+  ]
+}
+  - final_video.mp4: OK (0 bytes)
